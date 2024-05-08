@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "7026dda2-49ea-46eb-b6eb-445bd738ce24",
+		"name": "CRUD - NET CORE - AWS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15887388"
+	},
+	"item": [
+		{
+			"name": "CreateCar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/CreateCar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"CreateCar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "https://localhost:61106/CreateCar",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Brand\":\"Ferrari\",\r\n    \"Color\":\"black\",\r\n    \"Model\":\"Inferno\",\r\n    \"Price\":45990,\r\n    \"year\": 1950\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/CreateCar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"CreateCar"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "ReadCarsPlural",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/GetCars",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"GetCars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReadCarSingular",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/GetCar/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"GetCar",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateCar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/UpdateCar/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"UpdateCar",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "UpdateCar",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Brand\":\"Ferrari\",\r\n    \"Color\":\"black\",\r\n    \"Model\":\"Inferno\",\r\n    \"Price\":45990,\r\n    \"year\": 1950\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/UpdateCar/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"UpdateCar",
+								"1"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "DeleteCar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/DeleteCar/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"DeleteCar",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -23,4 +23,6 @@ Puedes ejecutar esta aplicación de varias maneras:
 
 La base de datos utilizada es un motor público alojado en una instancia RDS de SQL Server. Esto proporciona una solución escalable y gestionada para el almacenamiento de datos.
 
+Puedes cambiar la cadena de conexión accediendo a src/CreateCar/appsettings.json
+
 

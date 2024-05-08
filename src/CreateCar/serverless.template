@@ -1,0 +1,117 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "Esta pila ha sido genera lambdas y api gateway",
+  "Parameters": {},
+  "Conditions": {},
+  "Resources": {
+    "CreateCarFunction": {
+        "Type": "AWS::Serverless::Function",
+        "Properties": {
+          "Handler": "CreateCar::CreateCar.LambdaEntryPoint::FunctionHandlerAsync",
+          "Runtime": "dotnet8",
+          "MemorySize": 512,
+          "Timeout": 30,
+          "Role": null,
+          "Policies": ["AWSLambda_FullAccess"],
+          "Events": {
+            "CreateCarApiEvent": {
+              "Type": "Api",
+              "Properties": {
+                "Path": "/CreateCar",
+                "Method": "POST"
+              }
+            }
+          }
+        }
+      },
+    "GetCarsFunction": {
+     "Type": "AWS::Serverless::Function",
+     "Properties": {
+       "Handler": "GetCar::GetCar.LambdaEntryPoint::FunctionHandlerAsync",
+       "Runtime": "dotnet8",
+       "MemorySize": 512,
+       "Timeout": 30,
+       "Role": null,
+       "Policies": ["AWSLambda_FullAccess"],
+       "Events": {
+         "GetCarApiEvent": {
+           "Type": "Api",
+           "Properties": {
+             "Path": "/GetCars",
+             "Method": "GET"
+             }
+           }
+         }
+       }
+     },    
+    "GetCarFunction": {
+         "Type": "AWS::Serverless::Function",
+         "Properties": {
+           "Handler": "GetCar::GetCar.LambdaEntryPoint::FunctionHandlerAsync",
+           "Runtime": "dotnet8",
+           "MemorySize": 512,
+           "Timeout": 30,
+           "Role": null,
+           "Policies": ["AWSLambda_FullAccess"],
+           "Events": {
+             "GetCarApiEvent": {
+               "Type": "Api",
+               "Properties": {
+                 "Path": "/GetCar/{id}",
+                 "Method": "GET"
+               }
+             }
+           }
+         }
+       },
+    "UpdateCarFunction": {
+         "Type": "AWS::Serverless::Function",
+         "Properties": {
+           "Handler": "GetCar::GetCar.LambdaEntryPoint::FunctionHandlerAsync",
+           "Runtime": "dotnet8",
+           "MemorySize": 512,
+           "Timeout": 30,
+           "Role": null,
+           "Policies": ["AWSLambda_FullAccess"],
+           "Events": {
+             "GetCarApiEvent": {
+               "Type": "Api",
+               "Properties": {
+                 "Path": "/UpdateCar/{id}",
+                 "Method": "PUT"
+               }
+             }
+           }
+         }
+       },
+    "DeleteCarFunction": {
+         "Type": "AWS::Serverless::Function",
+         "Properties": {
+           "Handler": "GetCar::GetCar.LambdaEntryPoint::FunctionHandlerAsync",
+           "Runtime": "dotnet8",
+           "MemorySize": 512,
+           "Timeout": 30,
+           "Role": null,
+           "Policies": ["AWSLambda_FullAccess"],
+           "Events": {
+             "GetCarApiEvent": {
+               "Type": "Api",
+               "Properties": {
+                 "Path": "/DeleteCar/{id}",
+                 "Method": "DELETE"
+               }
+             }
+           }
+         }
+       }
+  },
+  "Outputs": {
+    "ApiURL": {
+      "Description": "API endpoint URL for Prod environment",
+      "Value": {
+        "Fn::Sub": "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod"
+      }
+    }
+  }
+}
